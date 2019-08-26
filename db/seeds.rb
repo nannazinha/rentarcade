@@ -16,7 +16,8 @@ puts "Items: #{Item.count}"
     category: ["Console", "Game"].sample,
     console_model: Faker::Game.platform,
     game_title: Faker::Game.title,
-    user_id: 1
+    user_id: 1,
+    price: (100..1000).to_a.sample
   )
   if new_item.category == "Console"
     new_item.game_title = ""
