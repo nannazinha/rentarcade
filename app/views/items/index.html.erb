@@ -1,0 +1,7 @@
+<% @items.each do |item| %>
+  <h3><%= link_to item.game_title, item_path(item) %></h3>
+  <h3><%= link_to item.console_model, item_path(item) %><h3>
+  <p><%= item.category %></p>
+  <br>
+<% end %>
+
