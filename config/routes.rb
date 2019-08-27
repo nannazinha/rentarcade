@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     resources :transactions, only: [:show, :new, :create]
   end
   resources :transactions, only: [:index]
+  get "/my_account", to: "pages#my_account", as: :my_account
 end
 
