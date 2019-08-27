@@ -1,0 +1,17 @@
+<% if @item.game_title == "" %>
+  <h1><%= @item.console_model %></h1>
+<% else %>
+  <h1><%= @item.game_title %></h1>
+<% end %>
+<% if @item.game_title == "" %>
+  <h2><%= "" %></h2>
+<% else %>
+  <h2>Console: <%= @item.console_model %></h2>
+<% end %>
+<h3>Categoria: <%= @item.category %></h3>
+<br>
+<p>Preço: R$<%= @item.price %> / dia</p>
+
+<a><%= link_to "Voltar à página principal", items_path %> | </a>
+<a><%= link_to "Editar", edit_item_path %> | </a>
+<a><%= link_to "Deletar", item_path(@item), method: :delete, data: { confirm: "Tem certeza de quer deletar este item?" } %></a>
