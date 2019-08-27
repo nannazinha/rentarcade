@@ -1,0 +1,22 @@
+<%= simple_form_for(@item) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <% if params[:category] == "Console" %>
+      <%= f.input :category, input_html: { value: 'Console' }, as: :hidden %>
+      <%= f.input :game_title, input_html: { value: '' }, as: :hidden %>
+      <%= f.input :console_model, label: "Modelo do Console:" %>
+    <% else %>
+      <%= f.input :category, input_html: { value: 'Jogo' }, as: :hidden %>
+      <%= f.input :game_title, label: "Nome do Jogo:" %>
+      <%= f.input :console_model, label: "Modelo do Console:" %>
+    <% end %>
+    <%= f.input :price, label: "Preço / dia (R$):" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, label: "Enviar" %>
+  </div>
+<% end %>
+
