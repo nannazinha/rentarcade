@@ -54,3 +54,14 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
+
+.links {
+  text-decoration: none;
+  color: darkgray;
+}
+
+.links:hover{
+  text-decoration: none;
+  color: gray;
+}
+
