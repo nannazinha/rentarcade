@@ -1,8 +1,8 @@
+<div class="container">
 <%= simple_form_for(@item) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <div class="form-inputs">
+  <div class="form-inputs" style="width: 500px; margin: 0 auto;">
     <% if params[:category] == "Console" %>
       <%= f.input :category, input_html: { value: 'Console' }, as: :hidden %>
       <%= f.input :game_title, input_html: { value: '' }, as: :hidden %>
@@ -15,8 +15,9 @@
     <%= f.input :price, label: "Preço / dia (R$):" %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, label: "Enviar" %>
+  <div class="form-actions" style="width: 500px; margin: 0 auto;">
+    <%= f.button :submit, label: "Enviar", class: "btn btn-outline-success" %>
   </div>
 <% end %>
 
+</div>
