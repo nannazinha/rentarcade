@@ -5,5 +5,11 @@ const initTyped = () => {
     typeSpeed: 100,
     loop: false,
   });
+
+  new Typed('#typed_player', {
+    strings: ["PAINEL DO PLAYER_"],
+    typeSpeed: 100,
+    loop: false,
+  });
 }
 export { initTyped };

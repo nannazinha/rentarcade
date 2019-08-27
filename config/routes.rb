@@ -7,3 +7,4 @@ Rails.application.routes.draw do
   end
   resources :transactions, only: [:index]
 end
+
