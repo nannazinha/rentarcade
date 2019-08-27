@@ -19,7 +19,7 @@ class TransactionsController < ApplicationController
     @transaction.cost = [1, ((end_date - start_date).to_i)].max * @item.price
     @transaction.item = @item
     if @transaction.save
-      redirect_to item_transactions_path
+      redirect_to transactions_path
     else
       render :new
     end
