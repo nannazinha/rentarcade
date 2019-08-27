@@ -1,23 +1,36 @@
-<% if @item.game_title == "" %>
-  <h1><%= @item.console_model %></h1>
-<% else %>
-  <h1><%= @item.game_title %></h1>
-<% end %>
-<% if @item.game_title == "" %>
-  <h2><%= "" %></h2>
-<% else %>
-  <h2>Console: <%= @item.console_model %></h2>
-<% end %>
-<h3>Categoria: <%= @item.category %></h3>
-<br>
-<p>Preço: R$<%= @item.price %> / dia</p>
-<br>
-<a><%= link_to "Alugar Item", new_item_transaction_path(@item) %></a>
-<br>
-<a><%= link_to "Voltar à página principal", items_path %> | </a>
-<% if @item.category == "Console"  %>
-  <a><%= link_to "Editar", edit_item_path(category: "Console") %> | </a>
-<% else %>
-  <a><%= link_to "Editar", edit_item_path(category: "Jogo") %> | </a>
-<% end %>
-<a><%= link_to "Deletar", item_path(@item), method: :delete, data: { confirm: "Tem certeza de quer deletar este item?" } %></a>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <% if @item.game_title == "" %>
+          <h1><%= @item.console_model %></h1>
+        <% else %>
+          <h1><%= @item.game_title %></h1>
+        <% end %>
+        <% if @item.game_title == "" %>
+          <h2><%= "" %></h2>
+        <% else %>
+          <h2>Console: <%= @item.console_model %></h2>
+        <% end %>
+    </div>
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+
+      <h3>Categoria: <%= @item.category %></h3>
+      <br>
+      <p>Preço: R$<%= @item.price %> / dia</p>
+      <br>
+      <a><%= link_to "Alugar Item", new_item_transaction_path(@item) %></a>
+      <br>
+      <a><%= link_to "Voltar à página principal", items_path %> | </a>
+      <% if @item.category == "Console"  %>
+        <a><%= link_to "Editar", edit_item_path(category: "Console") %> | </a>
+      <% else %>
+        <a><%= link_to "Editar", edit_item_path(category: "Jogo") %> | </a>
+      <% end %>
+      <a><%= link_to "Deletar", item_path(@item), method: :delete, data: { confirm: "Tem certeza de quer deletar este item?" } %></a>
+  </div>
+</div>
