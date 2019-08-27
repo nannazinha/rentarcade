@@ -1,0 +1,8 @@
+<% @transactions.each do |transaction| %>
+  <h3><%= transaction.item.game_title %></h3>
+  <h3><%= transaction.item.console_model %><h3>
+  <p>R$<%= transaction.cost %></p>
+  <br>
+<% end %>
+
+

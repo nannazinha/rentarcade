@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.all
+    @items = policy_scope(Item)
   end
 
   def show
@@ -14,11 +14,13 @@ class ItemsController < ApplicationController
     # if params[:category] == "Console"
     #   @item.game_title = ""
     # end
+    authorize @item
   end
 
   def create
     @item = Item.new(item_params)
     @item.user = current_user
+    authorize @item
     if @item.save
       redirect_to item_path(@item)
     else
@@ -43,6 +45,7 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+    authorize @item
   end
 
   def item_params

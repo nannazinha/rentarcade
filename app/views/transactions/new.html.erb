@@ -1,0 +1,20 @@
+
+<div class="container">
+  <div class="form-wrapper" style="width: 500px; margin: 0 auto;">
+    <h1>Alugar <%= @item.category %></h1>
+    <br>
+    <p> <%= @item.game_title %></p>
+    <p> <%= @item.console_model %></p>
+    <p id="price">R$ <%= @item.price %></p>
+    <br>
+    <%= simple_form_for [@item, @transaction] do |f| %>
+      <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker startdate"}%>
+      <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker enddate"}%>
+      <%= f.button :submit, class: "btn btn-primary"%>
+    <% end %>
+    <br>
+
+    <h3 id="totalcost"> R$ <%= @transaction.cost %></h3>
+  </div>
+</div>
+
