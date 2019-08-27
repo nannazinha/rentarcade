@@ -1,0 +1,20 @@
+<h2>Adicionar um:</h2>
+<h2><%= link_to "Console", new_item_path(category: "Console") %></h2>
+<h2><%= link_to "Jogo", new_item_path(category: "Jogo") %></h2>
+<br>
+<% @items.each do |item| %>
+  <% if item.game_title == "" %>
+    <h2><%= link_to item.console_model, item_path(item) %><h2>
+  <% else %>
+    <h2><%= link_to item.game_title, item_path(item) %></h2>
+  <% end %>
+  <% if item.game_title == "" %>
+    <h3><%= "" %><h2>
+  <% else %>
+    <h3>Console: <%= item.console_model %></h3>
+  <% end %>
+  <p>Categoria: <%= item.category %></p>
+  <p>R$<%= item.price %> / dia</p>
+  <br>
+<% end %>
+
