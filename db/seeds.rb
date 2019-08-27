@@ -9,11 +9,11 @@ require 'faker'
 
 Item.destroy_all
 
-puts "Items: #{Item.count}"
+puts "Itens: #{Item.count}"
 
 5.times do |n|
   new_item = Item.new(
-    category: ["Console", "Game"].sample,
+    category: ["Console", "Jogo"].sample,
     console_model: Faker::Game.platform,
     game_title: Faker::Game.title,
     user_id: 1,

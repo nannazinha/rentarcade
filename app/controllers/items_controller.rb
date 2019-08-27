@@ -10,10 +10,15 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @item.category = params[:category]
+    # if params[:category] == "Console"
+    #   @item.game_title = ""
+    # end
   end
 
   def create
     @item = Item.new(item_params)
+    @item.user = current_user
     if @item.save
       redirect_to item_path(@item)
     else
