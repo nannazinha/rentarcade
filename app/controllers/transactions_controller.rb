@@ -18,7 +18,8 @@ class TransactionsController < ApplicationController
     end_date = @transaction.end_date.to_date
     @transaction.cost = [1, ((end_date - start_date).to_i)].max * @item.price
     @transaction.item = @item
-      redirect_to item_transactions(@transaction)
+    if @transaction.save
+      redirect_to item_transactions_path
     else
       render :new
     end
@@ -31,6 +32,6 @@ class TransactionsController < ApplicationController
   end
 
   def transaction_params
-    params.require(:transaction).permit(:start_date, :end_date, :user_id, :item_id)
+    params.require(:transaction).permit(:start_date, :end_date, :user_id, :item_id, :cost)
   end
 end
