@@ -23,10 +23,13 @@ class TransactionsController < ApplicationController
     @transaction.user = current_user
     authorize @transaction
     if @transaction.save
-      redirect_to transactions_path
+      redirect_to item_transaction_path(@item, @transaction)
     else
       render :new
     end
+  end
+
+  def confirmation
   end
 
   private
@@ -37,6 +40,6 @@ class TransactionsController < ApplicationController
   end
 
   def transaction_params
-    params.require(:transaction).permit(:start_date, :end_date)
+    params.require(:transaction).permit(:start_date, :end_date, :item_id)
   end
 end

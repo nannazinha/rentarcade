@@ -1,6 +1,6 @@
 <% @transactions.each do |transaction| %>
-  <h3><%= transaction.item.game_title %></h3>
-  <h3><%= transaction.item.console_model %><h3>
+  <h3><%= link_to transaction.item.game_title, item_transaction_path(transaction.item, transaction) %></h3>
+  <h3><%= link_to transaction.item.console_model, item_transaction_path(transaction.item,transaction) %><h3>
   <p>R$<%= transaction.cost %></p>
   <br>
 <% end %>
