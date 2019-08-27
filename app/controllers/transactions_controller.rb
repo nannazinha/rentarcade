@@ -1,15 +1,17 @@
 class TransactionsController < ApplicationController
   before_action :set_item, only: [:new, :create]
   def index
-    @transactions = Transaction.all
+    @transactions = policy_scope(Transaction)
   end
 
   def show
     @transaction = Transaction.find(params[:id])
+    authorize @transaction
   end
 
   def new
     @transaction = Transaction.new
+    authorize @transaction
   end
 
   def create
@@ -19,6 +21,7 @@ class TransactionsController < ApplicationController
     @transaction.cost = [1, ((end_date - start_date).to_i)].max * @item.price
     @transaction.item = @item
     @transaction.user = current_user
+    authorize @transaction
     if @transaction.save
       redirect_to transactions_path
     else
@@ -30,6 +33,7 @@ class TransactionsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:item_id])
+    authorize @item
   end
 
   def transaction_params
