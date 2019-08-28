@@ -5,6 +5,7 @@
   justify-content: space-between;
   height: 100px;
   padding: 0px 50px;
+
   color: $green;
   position: bottom;
  }
@@ -25,3 +26,10 @@
 .footer .fa-heart {
   color: #D23333;
 }
+
+// #footer {
+//   position: absolute;
+//   bottom: 0;
+//   width: 100%;
+//   height: 2.5rem;            /* Footer height */
+// }
