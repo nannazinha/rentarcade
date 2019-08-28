@@ -1,15 +1,21 @@
-<div class="container">
-  <h2> Incrível! </h2>
-  <br>
-  <p> Você acabou de alugar um <%= @transaction.item.game_title %>!</p>
-  <br>
-  <p> Você tem até <%= @transaction.end_date %> para devolver esse jogo! </p>
-  <br>
-  <p> Você pagará R$ <%= @transaction.cost %> pelo aluguel desse jogo nesse período!</p>
-  <br>
-  <p>Em caso de dúvidas, entre em contato com <%= @transaction.user.email %>!</p>
-  <br>
-  <h2> Divirta-se! :)</h2>
-  <br>
-  <%= link_to "Ver todas as transações", transactions_path %>
+<div class="container" >
+  <div style="width: 500px; margin: 0 auto; padding-top: 30px;">
+    <h2> Incrível! </h2>
+    <br>
+    <p> Você acabou de alugar os seguintes ítens:</p>
+      <ul>
+        <li><%= @transaction.item.console_model %></li>
+        <li><%= @transaction.item.game_title %></li>
+      </ul>
+    <p> Você tem até <b><%= @transaction.end_date.strftime("%B %d, %Y") %></b> para devolver esses ítens! </p>
+    <br>
+    <p> Você pagará <b>R$ <%= @transaction.cost %></b> pelo aluguel desses ítens nesse período!</p>
+    <br>
+    <p>Em caso de dúvidas, entre em contato com <b><%= @transaction.item.user.email %></b>!</p>
+    <br>
+    <h2> Divirta-se! :)</h2>
+    <br>
+    <%= link_to "Ver todas as transações", transactions_path, class: "btn btn-outline-success" %>
+  </div>
 </div>
+
