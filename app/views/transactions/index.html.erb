@@ -1,8 +1,31 @@
-<% @transactions.each do |transaction| %>
-  <h3><%= link_to transaction.item.game_title, item_transaction_path(transaction.item, transaction) %></h3>
-  <h3><%= link_to transaction.item.console_model, item_transaction_path(transaction.item,transaction) %><h3>
-  <p>R$<%= transaction.cost %></p>
+<div class="container bg-white">
+  <div class="owner-panel">
+    <h1>
+      <span id="typed-transactions-index" ></span>
+    </h1>
+  </div>
+
+  <div class="container bg-white justify-content-center">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col" class="table-title">ID</th>
+            <th scope="col" class="table-title">CONSOLE</th>
+            <th scope="col" class="table-title">JOGO</th>
+            <th scope="col" class="table-title">VALOR</th>
+            <th scope="col" class="table-title"></th>
   <br>
+          </tr>
+        </thead>
+        <tbody>
+          <% @transactions.each do |transaction| %>
+          <tr>
+            <th scope="row"><%= transaction.id %></th>
+            <td><%= transaction.item.console_model %></td>
+            <td><%= transaction.item.game_title %></td>
+            <td>R$<%= transaction.cost %></td>
+            <td><a><%= link_to "Detalhes", item_transaction_path(transaction.item, transaction), class: "btn btn-outline-success" %></a></td>
+          </tr>
 <% end %>
-
-
+        </tbody>
+      </table>
