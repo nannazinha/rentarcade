@@ -7,3 +7,6 @@ flatpickr(".datepicker", {})
 flatpickr(".datepicker", {
   altInput: true
 })
+
+$('.datepicker').flatpickr({ minDate: new Date() });
+
