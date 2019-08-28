@@ -1,5 +1,13 @@
-<h1>Adicionar um novo item:</h1>
+<div>
+  <div class="card">
+    <div class="card-header text-center"> <h1>Adicionar um novo item</h1>
+    </div>
+    <div class="card-body">
+      <%= render 'form', item: @item %>
+      </div>
+  </div>
+  <div>
+    <a><%= link_to "Voltar à página principal", items_path, class: "links" %></a>
+  </div>
+</div>
 
-<%= render 'form', item: @item %>
-
-<%= link_to 'Voltar à página principal', items_path %>
