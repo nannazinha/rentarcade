@@ -2,6 +2,7 @@
   justify-content: space-between;
   background: white;
   font-family: 'Orbitron', sans-serif;
+  position: relative;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -14,4 +15,10 @@
 
 .dropdown-menu {
   font-family: "Open Sans", sans-serif;
+}
+
+.title-nav {
+  position: absolute;
+  margin-bottom: 3px;
+  margin-left: 60px;
 }
