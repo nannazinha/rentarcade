@@ -2,7 +2,14 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = policy_scope(Item)
+    if params[:category] == "console"
+      @items = Item.where(category: "Console")
+    elsif params[:category] == "jogo"
+      @items = Item.where(category: "Jogo")
+    else
+      @items = Item.all
+    end
+    policy_scope(@items)
   end
 
   def show

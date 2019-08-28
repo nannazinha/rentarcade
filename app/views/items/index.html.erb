@@ -2,9 +2,9 @@
   <div class="py-3">
     <p>
       <span style="font-family: 'Orbitron', sans-serif;">Filtre por</span>
-      <%= link_to 'Consoles', @item, class: 'btn btn-outline-primary ml-3' %>
-      <%= link_to 'Jogos', @item, class: 'btn btn-outline-primary' %>
-      <%= link_to 'Todos', @item, class: 'btn btn-outline-primary' %>
+      <%= link_to 'Consoles', items_path(category: "console"), class: 'btn btn-outline-primary ml-3' %>
+      <%= link_to 'Jogos', items_path(category: "jogo"), class: 'btn btn-outline-primary' %>
+      <%= link_to 'Todos', items_path, class: 'btn btn-outline-primary' %>
     </p>
 
   </div>
@@ -16,29 +16,6 @@
         <p class="xs-small-card">Diária: R$ <%= item.price %></p>
       </div>
     </div>
-    <% end %>
-  </div>
-</div>
-
-<div class="container">
-  <div class="py-3">
-    <p>
-      Filtre por <%= link_to 'Consoles', @item, class: 'btn btn-outline-primary' %>
-      <%= link_to 'Jogos', @item, class: 'btn btn-outline-primary' %>
-    </p>
-
-  </div>
-  <div class="cards">
-    <% @items.each do |item| %>
-      <% unless item.game_title == '' %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1566577134665-2c674085abf7?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=600)">
-          <div>
-            <h3><%= link_to item.game_title, item_path(item), class: "a-deco" %></h3>
-            <p class="xs-small-card"><%= item.console_model %></p>
-            <p class="xs-small-card">Diária: R$ <%= item.price %></p>
-          </div>
-        </div>
-      <% end %>
     <% end %>
   </div>
 </div>
