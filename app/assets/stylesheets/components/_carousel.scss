@@ -1,17 +1,20 @@
 .carousel-img{
 // opacity: 0.4;
 filter: brightness(70%);
-height: 90vh;
+height: 93.3vh;
 background-size: cover;
 }
 
 .carousel-caption > h1{
-  font-size: 50px;
+  font-size: 70px;
   font-weight: bolder;
 }
 
 .carousel-caption p{
-  font-size: 20px;
+  font-size: 25px;
 
 }
 
+.carousel-placement {
+  bottom: 11rem;
+}
