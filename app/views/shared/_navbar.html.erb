@@ -1,7 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "logo.png" %>
+
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "logo.png" %>
     <% end %>
+
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -11,20 +13,17 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
+        <li class="nav-item">
           <%= link_to "Adicionar console", new_item_path(category: "Console"), class: "btn btn-outline-success nav-link mr-2" %>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item">
           <%= link_to "Adicionar jogo", new_item_path(category: "Jogo"), class: "btn btn-outline-success nav-link mr-2" %>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item">
           <%= link_to "Home", items_path, class: "nav-link" %>
         </li>
-        <li class="nav-item active">
-          <%= link_to "Painel", panel_path, class: "nav-link" %>
-        </li>
         <li class="nav-item">
-          <%= link_to "Mensagens", "#", class: "nav-link mr-2" %>
+          <%= link_to "Painel", panel_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/nannazinha", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
