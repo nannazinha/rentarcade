@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
     stored_location_for(resource) || items_path
   end
 
+
   private
 
   def skip_pundit?
