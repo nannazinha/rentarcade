@@ -13,23 +13,25 @@
         <% end %>
     </div>
     <div class="card-body">
-      <h5 class="card-title">Categoria: <%= @item.category %></h5>
+      <h5 class="card-title"><strong>Categoria: </strong><%= @item.category %></h5>
       <br>
-      <h5 class="card-text">Preço: R$<%= @item.price %> / dia</h5>
+      <h5 class="card-text"><strong>Preço: </strong> R$<%= @item.price %> / dia</h5>
+      <br>
+      <h5 class="card-text"><strong>Usuário Locador: </strong><%= @item.user.email %></h5>
       <br>
       <a><%= link_to "Alugar Item", new_item_transaction_path(@item), class: "btn btn-outline-success" %></a>
     </div>
   </div>
   <br>
-  <a><%= link_to "Voltar à página principal", items_path, class: "links" %>| </a>
+  <a><%= link_to "Voltar à página principal", items_path, class: "links" %></a>
   <% if policy(@item).update? %>
     <% if @item.category == "Console"  %>
-      <a><%= link_to "Editar", edit_item_path(category: "Console"), class: "links" %> | </a>
+      <a> | <%= link_to "Editar", edit_item_path(category: "Console"), class: "links" %></a>
     <% else %>
-      <a><%= link_to "Editar", edit_item_path(category: "Jogo"), class: "links" %> | </a>
+      <a> | <%= link_to "Editar", edit_item_path(category: "Jogo"), class: "links" %> | </a>
     <% end %>
-      <a><%= link_to "Deletar", item_path(@item), method: :delete, data: { confirm: "Tem certeza de quer deletar este item?" }, class: "links" %></a>
-  <% end %> 
+      <a> | <%= link_to "Deletar", item_path(@item), method: :delete, data: { confirm: "Tem certeza de quer deletar este item?" }, class: "links" %></a>
+  <% end %>
 </div>
 </div>
 
