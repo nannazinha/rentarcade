@@ -11,6 +11,7 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  text-align: center;
 }
 
 .cards {
@@ -19,15 +20,20 @@
   grid-gap: 16px;
 }
 
-// a {
-//   text-decoration: none;
-//   color: white;
-// }
+.a-deco {
+  text-decoration: none;
+  color: white;
+}
 
-// a: {
-//   text-decoration: none;
-//   color: white;
-// }
+.a-deco:hover {
+  text-decoration: none;
+  color: white;
+  opacity: 0.7;
+}
+
+.xs-small-card {
+  font-size: 15px;
+}
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {

@@ -1,43 +1,43 @@
 <div class="container">
   <div class="py-3">
-    <p>Filtre por <%= link_to 'Console', @item, class: 'btn btn-outline-success' %></p>
+    <p>
+      Filtre por <%= link_to 'Consoles', @item, class: 'btn btn-outline-success' %>
+      <%= link_to 'Jogos', @item, class: 'btn btn-outline-success' %>
+    </p>
+
   </div>
   <div class="cards">
     <% @items.each do |item| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-      <%= link_to item.console_model, item_path(item) %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1544272871-94010c4c8f94?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=600)">
+      <div>
+        <h3> <%= link_to item.console_model, item_path(item), class: "a-deco" %></h3>
+        <p class="xs-small-card">Diária: R$ <%= item.price %></p>
+      </div>
     </div>
     <% end %>
   </div>
 </div>
 
+<div class="container">
+  <div class="py-3">
+    <p>
+      Filtre por <%= link_to 'Consoles', @item, class: 'btn btn-outline-success' %>
+      <%= link_to 'Jogos', @item, class: 'btn btn-outline-success' %>
+    </p>
 
-
-<% @items.each do |item| %>
-  <% if item.game_title == "" %>
-    <h2><%= link_to item.console_model, item_path(item) %><h2>
-  <% else %>
-    <h2><%= link_to item.game_title, item_path(item) %></h2>
-  <% end %>
-  <% if item.game_title == "" %>
-    <h3><%= "" %><h2>
-  <% else %>
-    <h3>Console: <%= item.console_model %></h3>
-  <% end %>
-  <p>Categoria: <%= item.category %></p>
-  <p>R$<%= item.price %> / dia</p>
-  <br>
-<% end %>
-
-
-
-
-
-
-<h2>Adicionar um:</h2>
-<h2><%= link_to "Console", new_item_path(category: "Console") %></h2>
-<h2><%= link_to "Jogo", new_item_path(category: "Jogo") %></h2>
-<br>
-
-
+  </div>
+  <div class="cards">
+    <% @items.each do |item| %>
+      <% unless item.game_title == '' %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1566577134665-2c674085abf7?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=600)">
+          <div>
+            <h3><%= link_to item.game_title, item_path(item), class: "a-deco" %></h3>
+            <p class="xs-small-card"><%= item.console_model %></p>
+            <p class="xs-small-card">Diária: R$ <%= item.price %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
