@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :items do
     resources :transactions, only: [:show, :new, :create]
   end
+
   resources :transactions, only: [:index]
   get "/panel", to: "users#panel", as: :panel
 end

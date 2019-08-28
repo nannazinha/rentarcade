@@ -1,6 +1,10 @@
 <div class="container-dois">
   <div class="card">
-    <div class="card-header text-center"> <h1>Adicionar um novo item</h1>
+    <div class="card-header text-center">
+      <div id="typed-strings">
+          <p>ADICIONAR ITEM_</p>
+      </div>
+      <span id="typed"></span>
     </div>
     <div class="card-body">
       <%= render 'form', item: @item %>
