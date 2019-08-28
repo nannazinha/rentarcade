@@ -12,8 +12,14 @@
     <% @items.each do |item| %>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1544272871-94010c4c8f94?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=600)">
       <div>
-        <h3> <%= link_to item.console_model, item_path(item), class: "a-deco" %></h3>
-        <p class="xs-small-card">Diária: R$ <%= item.price %></p>
+        <% if item.game_title == "" %>
+          <h3> <%= link_to item.console_model, item_path(item), class: "a-deco" %></h3>
+          <p class="xs-small-card">Diária: R$ <%= item.price %></p>
+        <% else %>
+          <h3> <%= link_to item.game_title, item_path(item), class: "a-deco" %></h3>
+          <p class="xs-small-card"> <%= item.console_model %></p>
+          <p class="xs-small-card">Diária: R$ <%= item.price %></p>
+        <% end %>
       </div>
     </div>
     <% end %>
