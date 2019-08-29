@@ -20,7 +20,7 @@
       <%= simple_form_for [@item, @transaction] do |f| %>
         <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker startdate"}%>
         <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker enddate"}%>
-        <%= f.button :submit, class: "btn btn-outline-success"%>
+        <%= f.button :submit, value: 'Alugar', class: "btn btn-outline-success"%>
       <% end %>
       <br>
       <a><%= link_to "Voltar à página principal", items_path, class: "links" %></a>

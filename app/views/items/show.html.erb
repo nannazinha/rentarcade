@@ -33,7 +33,7 @@
             <a> | <%= link_to "Editar", edit_item_path(category: "Jogo"), class: "links" %> | </a>
         <% end %>
 
-          <a> | <%= link_to "Deletar", item_path(@item), method: :delete, data: { confirm: "Tem certeza de quer deletar este item?" }, class: "links" %></a>
+          <a> <%= link_to "Deletar", item_path(@item), method: :delete, data: { confirm: "Tem certeza de quer deletar este item?" }, class: "links" %></a>
         <% end %>
     </div>
   </div>
