@@ -6,9 +6,15 @@ class UsersController < ApplicationController
     authorize @user
   end
 
+  def cart
+    @cart = current_user.cart
+  end
+
   private
 
   def set_user
     @user = current_user
   end
 end
+
+

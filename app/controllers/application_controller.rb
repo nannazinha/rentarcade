@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include Pundit
+  before_action :attribute_cart
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
@@ -17,6 +18,11 @@ class ApplicationController < ActionController::Base
     stored_location_for(resource) || items_path
   end
 
+  def attribute_cart
+    if current_user && current_user.cart.nil?
+      Cart.create(user: current_user)
+    end
+  end
 
   private
 

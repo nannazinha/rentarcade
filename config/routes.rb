@@ -14,5 +14,9 @@ Rails.application.routes.draw do
 
   resources :transactions, only: [:index]
   get "/panel", to: "users#panel", as: :panel
+
+  resources :cart_item, only: :create
+
+  get "/cart", to: "users#cart", as: :cart
 end
 
