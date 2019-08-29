@@ -18,6 +18,7 @@ gem 'webpacker'
 gem 'faker'
 gem 'pundit'
 gem 'kaminari'
+gem 'dotenv-rails', groups: [:development, :test]
 
 group :development do
   gem 'web-console', '>= 3.3.0'
