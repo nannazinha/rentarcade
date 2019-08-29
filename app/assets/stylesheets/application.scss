@@ -14,29 +14,29 @@
 @import "components/index";
 @import "pages/index";
 
-html {
-    position: relative;
-    min-height: 100%;
-}
+// html {
+//     // position: relative;
+//     min-height: 100vh;
+// }
 
-body {
-    margin: 0 0 100px;
-    /* bottom = footer height */
-    padding: 25px;
-}
+// body {
+//     margin: 0 0 100px;
+//     /* bottom = footer height */
+//     padding: 25px;
+// }
 
-footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    overflow: hidden;
-}
+// footer {
+//     position: absolute;
+//     left: 0;
+//     bottom: 0;
+//     width: 100%;
+//     overflow: hidden;
+// }
 
-.navbar{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    overflow: hidden;
-}
+// .navbar{
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+//     width: 100%;
+//     overflow: hidden;
+// }
