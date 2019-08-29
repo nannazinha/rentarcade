@@ -7,8 +7,6 @@ class UsersController < ApplicationController
     authorize @user
   end
 
-
-
   private
 
   def set_user
