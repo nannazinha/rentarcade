@@ -1,0 +1,13 @@
+<div class="container-dois">
+   <div id="typed-strings">
+       <p>INCRIVEL!_</p>
+   </div>
+   <span id="typed"></span>
+    <br>
+    <br>
+    <p> Você acaba de alugar o <b><%= @transaction.item.category %> : <%= @transaction.item.console_model %> - <%= @transaction.item.game_title %></b> no período de <b><%= @transaction.start_date.strftime("%B %d, %Y") %></b> até <b><%= @transaction.end_date.strftime("%B %d, %Y") %></b> <p> e você pagará <b>R$ <%= @transaction.cost %>!</p>
+    <br>
+    <p>Em caso de dúvidas, entre em contato com <b><%= @transaction.item.user.email %></b>!</p>
+
+    <%= link_to "Ver todas as transações", transactions_path, class: "btn btn-outline-success" %>
+</div>

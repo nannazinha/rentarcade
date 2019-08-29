@@ -31,6 +31,20 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def new_budget
+    @transaction = Transaction.find(params[:id])
+    @item = @transaction.item
+    @item.available = true
+    @item.save
+    @transaction.destroy
+    redirect_to new_item_transaction_path(@item)
+  end
+
+  def confirmed
+    @transaction = Transaction.find(params[:id])
+  end
+
+
   def confirmation
   end
 
