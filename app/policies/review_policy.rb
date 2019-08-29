@@ -1,4 +1,4 @@
-class ItemPolicy < ApplicationPolicy
+class ReviewPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -19,13 +19,5 @@ class ItemPolicy < ApplicationPolicy
 
   def destroy?
     record.user == user
-  end
-
-  def owner?
-    record.user == user
-  end
-
-  def not_owner?
-    record.user != user
   end
 end

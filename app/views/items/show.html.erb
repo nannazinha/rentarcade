@@ -24,6 +24,15 @@
         <a><%= link_to "Alugar Item", new_item_transaction_path(@item), class: "btn btn-outline-success" %></a>
       <% end %>
       <br>
+      <% if policy(@item).not_owner? %>
+        <a><%= link_to "Nova Avaliação", new_item_review_path(@item), class: "btn btn-outline-success" %></a>
+      <% end %>
+        <div class="card">
+          <% @item.reviews.each do |review|%>
+            <%= review.content %>
+            <%= review.rating %>
+          <% end %>
+        </div>
       <br>
 
       <a><%= link_to "Voltar à página principal", items_path, class: "links" %></a>
