@@ -10,12 +10,10 @@ Rails.application.routes.draw do
 
   resources :items do
     resources :transactions, only: [:show, :new, :create]
+    resources :reviews, only:[:show, :new, :create]
   end
 
   resources :transactions, only: [:index]
-
-
-
 
   get "/panel", to: "users#panel", as: :panel
   patch "/return/:id", to: "items#return", as: :return
