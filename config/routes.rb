@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   end
 
   resources :transactions, only: [:index]
-  get "/panel", to: "users#panel", as: :panel
+
+  get "/panel", to: "users#panel"
+
 end
 
