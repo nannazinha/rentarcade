@@ -1,14 +1,15 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :return]
 
   def index
     if params[:category] == "console"
-      @items = Item.where(category: "Console")
+      @items = Item.where(category: "Console").page(params[:page]).per(12)
     elsif params[:category] == "jogo"
-      @items = Item.where(category: "Jogo")
+      @items = Item.where(category: "Jogo").page(params[:page]).per(12)
     else
-      @items = Item.all
+      @items = Item.all.page(params[:page]).per(12)
     end
+    @items = @items.where(available: true)
     policy_scope(@items)
   end
 
@@ -45,6 +46,12 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
+    redirect_to items_path
+  end
+
+  def return
+    @item.available = true
+    @item.save
     redirect_to items_path
   end
 
