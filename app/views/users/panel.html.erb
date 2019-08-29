@@ -1,47 +1,79 @@
-<div class="container products-container bg-white">
+<div class="container d-flex justify-content-center products-container bg-white">
 
-  <div id="typed-strings">
-    <p>Painel do proprietario_</p>
-  </div>
-  <span id="typed"></span>
+  <div class="container listings">
+    <div id="typed-strings"><p>Reservas_</p></div>
+    <span id="typed"></span>
 
-  <div class="container bg-white justify-content-center">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col" class="table-title">ID</th>
-            <th scope="col" class="table-title">ITEM</th>
-            <th scope="col" class="table-title">CATEGORIA</th>
-            <th scope="col" class="table-title">VALOR (R$/DIA)</th>
-            <th scope="col" class="table-title"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @items.each do |item| %>
-            <tr>
-              <th scope="row"><%= item.id %></th>
-              <% if item.game_title == "" %>
-                <td><%= item.console_model %></td>
-              <% else %>
-                <td><%= item.game_title %></td>
-              <% end %>
-              <td><%= item.category %></td>
-              <td><%= format("%.2f", item.price) %></td>
-              <td>
-                <% if policy(item).update? %>
-                  <% if item.category == "Console" %>
-                    <a href="#" role="button"><%= link_to "Editar", edit_item_path(id: item, category: "Console"), class: "btn btn-outline-success" %></a>
-                  <% else %>
-                    <a href="#" role="button"><%= link_to "Editar", edit_item_path(id: item, category: "Jogo"), class: "btn btn-outline-success" %></a>
-                  <% end %>
-                  <a href="#" role="button"><%= link_to "Deletar", item_path(item), method: :delete, data: { confirm: "Tem certeza de quer deletar este item?" }, class: "btn btn-outline-success" %></a>
+    <div class="container bg-white justify-content-center">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col" class="table-title">ID</th>
+                  <th scope="col" class="table-title">CONSOLE</th>
+                  <th scope="col" class="table-title">JOGO</th>
+                  <th scope="col" class="table-title">VALOR</th>
+                  <th scope="col" class="table-title"></th>
+                  <br>
+                </tr>
+              </thead>
+              <tbody>
+                <% @transactions.each do |transaction| %>
+                  <tr>
+                    <th scope="row"><%= transaction.id %></th>
+                    <td><%= transaction.item.console_model %></td>
+                    <td><%= transaction.item.game_title %></td>
+                    <td>R$<%= transaction.cost %></td>
+                    <td><a><%= link_to "Detalhes", item_transaction_path(transaction.item, transaction), class: "btn btn-outline-success" %></a></td>
+                  </tr>
                 <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+              </tbody>
+            </table>
+    </div>
   </div>
+
+  <div class="listings">
+    <div id="typed-strings"><p>Reservas_</p></div>
+    <span id="typed"></span>
+
+    <div class="container bg-white justify-content-center">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col" class="table-title">ID</th>
+              <th scope="col" class="table-title">ITEM</th>
+              <th scope="col" class="table-title">CATEGORIA</th>
+              <th scope="col" class="table-title">VALOR (R$/DIA)</th>
+              <th scope="col" class="table-title"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @items.each do |item| %>
+              <tr>
+                <th scope="row"><%= item.id %></th>
+                <% if item.game_title == "" %>
+                  <td><%= item.console_model %></td>
+                <% else %>
+                  <td><%= item.game_title %></td>
+                <% end %>
+                <td><%= item.category %></td>
+                <td><%= format("%.2f", item.price) %></td>
+                <td>
+                  <% if policy(item).update? %>
+                    <% if item.category == "Console" %>
+                      <a href="#" role="button"><%= link_to "Editar", edit_item_path(id: item, category: "Console"), class: "btn btn-outline-success" %></a>
+                    <% else %>
+                      <a href="#" role="button"><%= link_to "Editar", edit_item_path(id: item, category: "Jogo"), class: "btn btn-outline-success" %></a>
+                    <% end %>
+                    <a href="#" role="button"><%= link_to "Deletar", item_path(item), method: :delete, data: { confirm: "Tem certeza de quer deletar este item?" }, class: "btn btn-outline-success" %></a>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+  </div>
+
 </div>
 
 
