@@ -19,7 +19,9 @@
       <br>
       <h5 class="card-text"><strong>Usuário Locador: </strong><%= @item.user.email %></h5>
       <br>
-      <a><%= link_to "Alugar Item", new_item_transaction_path(@item), class: "btn btn-outline-success" %></a>
+      <% if policy(@item).not_owner? %>
+        <a><%= link_to "Alugar Item", new_item_transaction_path(@item), class: "btn btn-outline-success" %></a>
+      <% end %>
       <br>
       <br>
 

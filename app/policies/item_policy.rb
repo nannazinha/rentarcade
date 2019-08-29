@@ -20,4 +20,8 @@ class ItemPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def not_owner?
+    record.user != user
+  end
 end
