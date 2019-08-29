@@ -3,11 +3,11 @@ class ItemsController < ApplicationController
 
   def index
     if params[:category] == "console"
-      @items = Item.where(category: "Console")
+      @items = Item.where(category: "Console").page(params[:page]).per(12)
     elsif params[:category] == "jogo"
-      @items = Item.where(category: "Jogo")
+      @items = Item.where(category: "Jogo").page(params[:page]).per(12)
     else
-      @items = Item.all
+      @items = Item.all.page(params[:page]).per(12)
     end
     policy_scope(@items)
   end
