@@ -4,17 +4,11 @@
    </div>
    <span id="typed"></span>
     <br>
-    <p> Você acabou de alugar os seguintes ítens:</p>
-      <ul>
-        <li><%= @transaction.item.category %> : <%= @transaction.item.console_model %> - <%= @transaction.item.game_title %></li>
-      </ul>
-    <p> Você tem até <b><%= @transaction.end_date.strftime("%B %d, %Y") %></b> para devolver esses ítens! </p>
     <br>
-    <p> Você pagará <b>R$ <%= @transaction.cost %></b> pelo aluguel desses ítens nesse período!</p>
+    <p> Para alugar o <b><%= @transaction.item.category %> : <%= @transaction.item.console_model %> - <%= @transaction.item.game_title %></b> no período de <b><%= @transaction.start_date.strftime("%B %d, %Y") %></b> até <b><%= @transaction.end_date.strftime("%B %d, %Y") %></b> <p> você pagará <b>R$ <%= @transaction.cost %>!</p>
     <br>
-    <p>Em caso de dúvidas, entre em contato com <b><%= @transaction.item.user.email %></b>!</p>
-    <br>
-    <h2> Divirta-se! :)</h2>
-    <br>
-    <%= link_to "Ver todas as transações", transactions_path, class: "btn btn-outline-success" %>
+<!--     <p>Em caso de dúvidas, entre em contato com <b><%= @transaction.item.user.email %></b>!</p>
+ -->
+    <%= link_to "Confirmar?", transactions_path, class: "btn btn-outline-success" %>
+    <%= link_to "Novo orçamento?", new_item_transaction_path, class: "btn btn-outline-success" %>
 </div>

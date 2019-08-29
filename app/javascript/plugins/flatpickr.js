@@ -3,9 +3,10 @@ import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
 
 flatpickr(".datepicker", {})
 
-flatpickr(".datepicker", {
-  altInput: true
-})
 
-$('.datepicker').flatpickr({ minDate: new Date() });
+flatpickr(".range_start", {
+  minDate: new Date(),
+  altInput: true,
+  plugins: [new rangePlugin({ input: ".range_end"})]
+})
 
