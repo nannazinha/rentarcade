@@ -5,19 +5,19 @@
   <span id="typed"></span>
 
   <div class="container bg-white justify-content-center">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col" class="table-title">ID</th>
-            <th scope="col" class="table-title">CONSOLE</th>
-            <th scope="col" class="table-title">JOGO</th>
-            <th scope="col" class="table-title">VALOR</th>
-            <th scope="col" class="table-title"></th>
-  <br>
-          </tr>
-        </thead>
-        <tbody>
-          <% @transactions.each do |transaction| %>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col" class="table-title">ID</th>
+          <th scope="col" class="table-title">CONSOLE</th>
+          <th scope="col" class="table-title">JOGO</th>
+          <th scope="col" class="table-title">VALOR</th>
+          <th scope="col" class="table-title"></th>
+        <br>
+        </tr>
+      </thead>
+      <tbody>
+        <% @current_user.transactions.each do |transaction| %>
           <tr>
             <th scope="row"><%= transaction.id %></th>
             <td><%= transaction.item.console_model %></td>
@@ -25,6 +25,8 @@
             <td>R$<%= transaction.cost %></td>
             <td><a><%= link_to "Detalhes", item_transaction_path(transaction.item, transaction), class: "btn btn-outline-success" %></a></td>
           </tr>
-<% end %>
-        </tbody>
-      </table>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
