@@ -9,6 +9,6 @@
     <br>
 <!--     <p>Em caso de dúvidas, entre em contato com <b><%= @transaction.item.user.email %></b>!</p>
  -->
-    <%= link_to "Confirmar?", transactions_path, class: "btn btn-outline-success" %>
-    <%= link_to "Novo orçamento?", new_item_transaction_path, class: "btn btn-outline-success" %>
+    <%= link_to "Confirmar?", confirmed_path(@transaction), class: "btn btn-outline-success" %>
+    <%= link_to "Novo orçamento?", new_budget_path(@transaction), class: "btn btn-outline-success", method: :post %>
 </div>
