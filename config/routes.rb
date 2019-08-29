@@ -14,5 +14,6 @@ Rails.application.routes.draw do
 
   resources :transactions, only: [:index]
   get "/panel", to: "users#panel", as: :panel
+  patch "/return/:id", to: "items#return", as: :return
 end
 

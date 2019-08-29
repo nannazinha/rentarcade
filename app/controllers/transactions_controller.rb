@@ -23,6 +23,8 @@ class TransactionsController < ApplicationController
     @transaction.user = current_user
     authorize @transaction
     if @transaction.save
+      @item.available = false
+      @item.save
       redirect_to item_transaction_path(@item, @transaction)
     else
       render :new
