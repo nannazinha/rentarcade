@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :return]
 
   def index
     if params[:category] == "console"
@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
     else
       @items = Item.all
     end
+    @items = @items.where(available: true)
     policy_scope(@items)
   end
 
@@ -45,6 +46,12 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
+    redirect_to items_path
+  end
+
+  def return
+    @item.available = true
+    @item.save
     redirect_to items_path
   end
 
