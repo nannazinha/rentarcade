@@ -10,7 +10,8 @@
   </div>
   <div class="cards">
     <% @items.each do |item| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/600x400/?{games},{#{<%= item %>}})">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(
+       <%= cl_image_path item.photo, height: 400, width: 600, crop: :fill %>)">
       <div>
         <% if item.game_title == "" %>
           <h3> <%= link_to item.console_model, item_path(item), class: "a-deco" %></h3>

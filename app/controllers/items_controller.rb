@@ -63,6 +63,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:console_model, :game_title, :category, :price, :user_id)
+    params.require(:item).permit(:console_model, :game_title, :category, :price, :user_id, :photo)
   end
 end
