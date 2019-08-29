@@ -12,7 +12,8 @@
           <h5>Console: <%= @item.console_model %></h5>
         <% end %>
     </div>
-    <div class="card-body">
+    <div class="card-body" >
+      <div class="media"><%= cl_image_tag @item.photo, height: 300, width: 400, crop: :fill %></div>
       <h5 class="card-title"><strong>Categoria: </strong><%= @item.category %></h5>
       <br>
       <h5 class="card-text"><strong>Preço: </strong> R$<%= @item.price %> / dia</h5>
