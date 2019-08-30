@@ -44,7 +44,6 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.find(params[:id])
   end
 
-
   def confirmation
   end
 
