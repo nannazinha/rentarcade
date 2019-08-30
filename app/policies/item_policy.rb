@@ -28,4 +28,5 @@ class ItemPolicy < ApplicationPolicy
   def not_owner?
     record.user != user
   end
+
 end
