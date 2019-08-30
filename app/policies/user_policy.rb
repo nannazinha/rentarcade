@@ -3,7 +3,11 @@ class UserPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
- end
+  end
+
+  def profile?
+    record == user
+  end
 
   def panel?
     record == user
