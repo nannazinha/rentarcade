@@ -16,12 +16,12 @@ Rails.application.routes.draw do
   resources :transactions, only: [:index]
 
   get "/panel", to: "users#panel", as: :panel
+  get "/profile", to: "users#profile", as: :profile
+
   patch "/return/:id", to: "items#return", as: :return
 
   get "/transactions/:id/confirmed", to: "transactions#confirmed", as: :confirmed
   post "/transactions/:id/new_budget", to: "transactions#new_budget", as: :new_budget
-
-
 
 end
 
