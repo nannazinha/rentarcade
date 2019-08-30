@@ -1,18 +1,5 @@
-<!-- <div class="container-dois">
-   <div id="typed-strings">
-       <p>INCRIVEL!_</p>
-   </div>
-   <span id="typed"></span>
-    <br>
-    <br>
-    <p> Você acaba de alugar o <b><%= @transaction.item.category %> : <%= @transaction.item.console_model %> - <%= @transaction.item.game_title %></b> no período de <b><%= @transaction.start_date.strftime("%B %d, %Y") %></b> até <b><%= @transaction.end_date.strftime("%B %d, %Y") %></b> <p> e você pagará <b>R$ <%= @transaction.cost %>!</p>
-    <br>
-    <p>Em caso de dúvidas, entre em contato com <b><%= @transaction.item.user.email %></b>!</p>
+<% period = Time.diff(@transaction.end_date, @transaction.start_date, "%d")  %>
 
-    <%= link_to "Ver todas as transações", transactions_path, class: "btn btn-outline-success" %>
-</div>
-
- -->
 <div class="container-dois">
     <div id="typed-strings">
         <p>Incrível!_</p>
@@ -20,11 +7,11 @@
     <span id="typed"></span>
   <br>
   <p>Uau! A partir de agora você vai se divertir pra caralho!</p>
-  <div class="card" style="width: 50rem;">
+  <div class="card" style="width: 40rem; border: none;">
     <ul class="list-group list-group-flush">
       <li class="list-group-item"><b><%= @transaction.item.category.upcase %></b> <%= @transaction.item.console_model %> - <%= @transaction.item.game_title %></li>
       <li class="list-group-item">De <%= @transaction.start_date.strftime("%B %d, %Y") %> até <%= @transaction.end_date.strftime("%B %d, %Y") %></li>
-      <li class="list-group-item">R$ <%= @transaction.item.price %> x <%= @transaction.end_date - @transaction.start_date %> dias</li>
+      <li class="list-group-item">R$ <%= @transaction.item.price %> x <%= period[:day] %> dia(s)</li>
       <li class="list-group-item">Total: R$ <%= @transaction.cost %></li>
     </ul>
   </div>
