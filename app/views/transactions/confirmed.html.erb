@@ -1,4 +1,4 @@
-<div class="container-dois">
+<!-- <div class="container-dois">
    <div id="typed-strings">
        <p>INCRIVEL!_</p>
    </div>
@@ -10,4 +10,25 @@
     <p>Em caso de dúvidas, entre em contato com <b><%= @transaction.item.user.email %></b>!</p>
 
     <%= link_to "Ver todas as transações", transactions_path, class: "btn btn-outline-success" %>
+</div>
+
+ -->
+<div class="container-dois">
+    <div id="typed-strings">
+        <p>Incrível!_</p>
+    </div>
+    <span id="typed"></span>
+  <br>
+  <p>Uau! A partir de agora você vai se divertir pra caralho!</p>
+  <div class="card" style="width: 50rem;">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><b><%= @transaction.item.category.upcase %></b> <%= @transaction.item.console_model %> - <%= @transaction.item.game_title %></li>
+      <li class="list-group-item">De <%= @transaction.start_date.strftime("%B %d, %Y") %> até <%= @transaction.end_date.strftime("%B %d, %Y") %></li>
+      <li class="list-group-item">R$ <%= @transaction.item.price %> x <%= @transaction.end_date - @transaction.start_date %> dias</li>
+      <li class="list-group-item">Total: R$ <%= @transaction.cost %></li>
+    </ul>
+  </div>
+  <br>
+    <p>Em caso de dúvidas, entre em contato com <b><%= @transaction.item.user.first_name %></b> <%= @transaction.item.user.last_name %> - <b><%= @transaction.item.user.email %></b></p>
+      <%= link_to "Ver todas as transações", transactions_path, class: "btn btn-outline-success mb-2 mr-sm-2" %>
 </div>
