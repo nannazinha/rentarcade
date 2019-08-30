@@ -6,6 +6,7 @@
         <% else %>
           <h1><%= @item.game_title %></h1>
         <% end %>
+        <br>
         <% if @item.game_title == "" %>
           <h2><%= "" %></h2>
         <% else %>
@@ -20,8 +21,8 @@
 
     <div>
       <%= simple_form_for [@item, @transaction], wrapper: :inline_form, html: { class: 'form-inline' }  do |f| %>
-        <%= f.input :start_date, as: :string, input_html: { class: "range_start mb-2 mr-sm-2" }%>
-        <%= f.input :end_date, as: :string, input_html: { class: "range_end mb-2 mr-sm-2" }%>
+        <%= f.input :start_date, as: :string, input_html: { class: "range_start mb-2 mr-sm-2" }, placeholder: 'Início'%>
+        <%= f.input :end_date, as: :string, input_html: { class: "range_end mb-2 mr-sm-2" }, placeholder: 'Devolução'%>
         <%= f.button :submit, value: 'Orçamento', class: "btn btn-outline-success mb-2"%>
       <% end %>
     </div>

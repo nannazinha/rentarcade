@@ -1,14 +1,20 @@
+
 <div class="container-dois">
-   <div id="typed-strings">
-       <p>INCRIVEL!_</p>
-   </div>
-   <span id="typed"></span>
-    <br>
-    <br>
-    <p> Para alugar o <b><%= @transaction.item.category %> : <%= @transaction.item.console_model %> - <%= @transaction.item.game_title %></b> no período de <b><%= @transaction.start_date.strftime("%B %d, %Y") %></b> até <b><%= @transaction.end_date.strftime("%B %d, %Y") %></b> <p> você pagará <b>R$ <%= @transaction.cost %>!</p>
-    <br>
-<!--     <p>Em caso de dúvidas, entre em contato com <b><%= @transaction.item.user.email %></b>!</p>
- -->
-    <%= link_to "Confirmar?", confirmed_path(@transaction), class: "btn btn-outline-success" %>
-    <%= link_to "Novo orçamento?", new_budget_path(@transaction), class: "btn btn-outline-success", method: :post %>
+    <div id="typed-strings">
+        <p>Revisar_</p>
+    </div>
+    <span id="typed"></span>
+  <br>
+  <div class="card" style="width: 40rem; border: none">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><b><%= @transaction.item.category.upcase %></b> <%= @transaction.item.console_model %> - <%= @transaction.item.game_title %></li>
+      <li class="list-group-item">De <%= l @transaction.start_date, format: "%d de %B de %Y" %> até <%= l @transaction.end_date, format: "%d de %B de %Y" %></li>
+      <% console %>
+      <li class="list-group-item">R$ <%= @transaction.item.price %> x <%= ((@transaction.end_date - @transaction.start_date)/1.day).round %> dia(s)</li>
+      <li class="list-group-item">Total: R$ <%= @transaction.cost %></li>
+    </ul>
+  </div>
+  <br>
+      <%= link_to "Confirmar", confirmed_path(@transaction), class: "btn btn-outline-success mb-2 mr-sm-2" %>
+      <%= link_to "Novo orçamento", new_budget_path(@transaction), class: "btn btn-outline-success mb-2 mr-sm-2", method: :post %>
 </div>

@@ -1,38 +1,59 @@
 <div class="container-dois products-container ">
-  <div class="card">
-    <div class="card-header">
-      <% if @item.game_title == "" %>
+  <div class="card-product">
+    <%= cl_image_tag @item.photo, height: 300, width: 400, crop: :fill %>
+    <div class="card-product-infos">
+        <% if @item.game_title == "" %>
           <h1><%= @item.console_model %></h1>
         <% else %>
           <h1><%= @item.game_title %></h1>
         <% end %>
         <% if @item.game_title == "" %>
           <h2><%= "" %></h2>
+
         <% else %>
-          <h5>Console: <%= @item.console_model %></h5>
+          <h5><strong>Console</strong> <%= @item.console_model %></h5>
         <% end %>
+
+      <h5 class="card-title"><strong>Categoria </strong><%= @item.category %></h5>
+
+      <h5 class="card-text"><strong>Preço </strong> R$<%= @item.price %> / dia</h5>
+
+      <h5 class="card-text"><strong>Proprietário </strong><%= @item.user.first_name %> <%= @item.user.last_name %></h5>
     </div>
-    <div class="card-body" >
-      <div class="media"><%= cl_image_tag @item.photo, height: 300, width: 400, crop: :fill %></div>
-      <h5 class="card-title"><strong>Categoria: </strong><%= @item.category %></h5>
+  </div>
       <br>
-      <h5 class="card-text"><strong>Preço: </strong> R$<%= @item.price %> / dia</h5>
-      <br>
-      <h5 class="card-text"><strong>Usuário Locador: </strong><%= @item.user.email %></h5>
-      <br>
+      <div class='form-inline' >
+
       <% if policy(@item).not_owner? %>
-        <a><%= link_to "Alugar Item", new_item_transaction_path(@item), class: "btn btn-outline-success" %></a>
+        <a><%= link_to "Alugar Item", new_item_transaction_path(@item), class: "btn btn-outline-success mr-3" %></a>
       <% end %>
       <br>
       <% if policy(@item).not_owner? %>
         <a><%= link_to "Nova Avaliação", new_item_review_path(@item), class: "btn btn-outline-success" %></a>
       <% end %>
-        <div class="card">
-          <% @item.reviews.each do |review|%>
-            <%= review.content %>
-            <%= review.rating %>
-          <% end %>
-        </div>
+      </div>
+
+      <br>
+       <!--  REVIEWS -->
+      <div>
+
+        <h4>Avaliações</h4>
+        <% @item.reviews.each do |review|%>
+          <div class="notification">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{review.user.email.split("@").first}", class: "avatar-large" %>
+            <div class="notification-content">
+              <p><small><%= review.created_at.strftime("%B %d, %Y") %> <% review.rating.times do %>⭐<%end%></small></p>
+              <p><%= review.content %></p>
+            </div>
+
+            <div class="notification-actions">
+              <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
+              <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
       <br>
 
       <a><%= link_to "Voltar à página principal", items_path, class: "links" %></a>

@@ -1,2 +1,26 @@
-<%= @user.first_name %>
-<%= @user.last_name %>
+<div class="container">
+  <div class="row p-10">
+    <div class="col-4 border m-10 profile-cont">
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{current_user.email.split("@").first}", class: 'profile-pic'%>
+      <h3 class="align-text-center"><%= current_user.first_name %> <%= current_user.last_name %></h3>
+        <p><%= current_user.email %></p>
+        <p><%= current_user.address %></p>
+    </div>
+    <div class="col-7 p-10 profile-cont" style="margin-left: 10px;">
+      <div>
+        <h4>Avaliações</h4>
+        <% current_user.reviews.each do |review|%>
+          <div class="notification">
+            <img src="<%= review.item.photo %>" class= "avatar-cube" />
+            <div class="notification-content">
+              <p><small><%= review.created_at.strftime("%B %d, %Y") %> <% review.rating.times do %>⭐<%end%></small></p>
+              <p><%= review.content %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
