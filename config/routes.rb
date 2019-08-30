@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   patch "/return/:id", to: "items#return", as: :return
 
-  get "/transactions/:id/confirmed", to: "transactions#confirmed", as: :confirmed
+  get "/transactions/:id/confirmed/:id", to: "transactions#confirmed", as: :confirmed
   post "/transactions/:id/new_budget", to: "transactions#new_budget", as: :new_budget
 
 end

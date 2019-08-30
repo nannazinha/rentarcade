@@ -23,7 +23,7 @@
             <td><%= transaction.item.console_model %></td>
             <td><%= transaction.item.game_title %></td>
             <td>R$<%= transaction.cost %></td>
-            <td><a><%= link_to "Detalhes", item_transaction_path(transaction.item, transaction), class: "btn btn-outline-success" %></a></td>
+            <td><a><%= link_to "Detalhes", confirmed_path(transaction.item, transaction), class: "btn btn-outline-success" %></a></td>
           </tr>
         <% end %>
       </tbody>
