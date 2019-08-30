@@ -9,7 +9,6 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item"><b><%= @transaction.item.category.upcase %></b> <%= @transaction.item.console_model %> - <%= @transaction.item.game_title %></li>
       <li class="list-group-item">De <%= l @transaction.start_date, format: "%d de %B de %Y" %> até <%= l @transaction.end_date, format: "%d de %B de %Y" %></li>
-      <% console %>
       <li class="list-group-item">R$ <%= @transaction.item.price %> x <%= ((@transaction.end_date - @transaction.start_date)/1.day).round %> dia(s)</li>
       <li class="list-group-item">Total: R$ <%= @transaction.cost %></li>
     </ul>
