@@ -11,21 +11,21 @@
           <h2><%= "" %></h2>
 
         <% else %>
-          <p>Console: <%= @item.console_model %></p>
+          <h5><strong>Console</strong> <%= @item.console_model %></h5>
         <% end %>
 
       <h5 class="card-title"><strong>Categoria </strong><%= @item.category %></h5>
 
       <h5 class="card-text"><strong>Preço </strong> R$<%= @item.price %> / dia</h5>
 
-      <h5 class="card-text"><strong>Proprietário </strong><%= @item.user.email %></h5>
+      <h5 class="card-text"><strong>Proprietário </strong><%= @item.user.first_name %> <%= @item.user.last_name %></h5>
     </div>
   </div>
       <br>
       <div class='form-inline' >
 
       <% if policy(@item).not_owner? %>
-        <a><%= link_to "Alugar Item", new_item_transaction_path(@item), class: "btn btn-outline-success" %></a>
+        <a><%= link_to "Alugar Item", new_item_transaction_path(@item), class: "btn btn-outline-success mr-3" %></a>
       <% end %>
       <br>
       <% if policy(@item).not_owner? %>
