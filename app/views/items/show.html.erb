@@ -36,6 +36,8 @@
       <br>
        <!--  REVIEWS -->
       <div>
+
+        <h4>Avaliações</h4>
         <% @item.reviews.each do |review|%>
           <div class="notification">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{review.user.email.split("@").first}", class: "avatar-large" %>
