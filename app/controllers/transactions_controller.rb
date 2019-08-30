@@ -1,7 +1,7 @@
 class TransactionsController < ApplicationController
   before_action :set_item, only: [:new, :create]
   def index
-    @transactions = policy_scope(Transaction)
+    @transactions = policy_scope(Transaction).includes(:item).where(user: current_user).order(:created_at)
   end
 
   def show
@@ -21,6 +21,7 @@ class TransactionsController < ApplicationController
     @transaction.cost = [1, ((end_date - start_date).to_i)].max * @item.price
     @transaction.item = @item
     @transaction.user = current_user
+    @transaction.devoluted = false
     authorize @transaction
     if @transaction.save
       @item.available = false
@@ -56,6 +57,6 @@ class TransactionsController < ApplicationController
   end
 
   def transaction_params
-    params.require(:transaction).permit(:start_date, :end_date, :item_id)
+    params.require(:transaction).permit(:start_date, :end_date, :item_id, :devoluted)
   end
 end

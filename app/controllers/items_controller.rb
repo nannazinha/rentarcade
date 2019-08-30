@@ -49,12 +49,6 @@ class ItemsController < ApplicationController
     redirect_to items_path
   end
 
-  def return
-    @item.available = true
-    @item.save
-    redirect_to items_path
-  end
-
   private
 
   def set_item

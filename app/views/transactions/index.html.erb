@@ -17,13 +17,19 @@
         </tr>
       </thead>
       <tbody>
-        <% @current_user.transactions.each do |transaction| %>
+        <% @transactions.each_with_index do |transaction, index| %>
           <tr>
             <th scope="row"><%= transaction.id %></th>
             <td><%= transaction.item.console_model %></td>
             <td><%= transaction.item.game_title %></td>
             <td>R$<%= transaction.cost %></td>
-            <td><a><%= link_to "Detalhes", confirmed_path(transaction.item, transaction), class: "btn btn-outline-success" %></a></td>
+            <td><%= link_to "Detalhes", confirmed_path(transaction.item, transaction), class: "btn btn-outline-success" %></td>
+            <td><%= link_to "Avaliar", new_item_review_path(transaction.item), class: "btn btn-outline-success" %></td>
+            <td>
+              <% if !transaction.item.available && !transaction.devoluted %>
+                <%= link_to "Devolver", item_devolutions_path(transaction.item, transaction.id), class: "btn btn-outline-success", method: :post %>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>
