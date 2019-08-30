@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="offset-md-3 col-md-6">
+    <div class="offset-md-3 col-md-6 border mt-5 py-5">
       <h2>Log in</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -16,7 +16,7 @@
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Log in", class: 'btn btn-outline-success btn-lg' %>
+          <%= f.button :submit, "Log in", class: 'btn btn-outline-success btn-lg mb-3' %>
         </div>
       <% end %>
 
